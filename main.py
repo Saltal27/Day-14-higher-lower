@@ -4,14 +4,9 @@ from game_data import data
 from replit import clear
 import random
 
-current_score = 0
-first_person = random.choice(data)
-second_person = random.choice(data)
-a = ""
-b = ""
-
 
 def new_comparison():
+    '''Picks two random accounts from the data list'''
     global first_person
     global second_person
     global a
@@ -21,10 +16,13 @@ def new_comparison():
     a = f"{first_person['name']}, {first_person['description']}, {first_person['country']}"
 
     second_person = random.choice(data)
+    if second_person == first_person:
+        second_person = random.choice(data)
     b = f"{second_person['name']}, {second_person['description']}, {second_person['country']}"
 
 
 def compare(A, B):
+    '''Compares account A followers number agaist account B followers number, and returns the higher account charachter (a / b)'''
     a_folower = A['follower_count']
     b_folower = B['follower_count']
     if a_folower > b_folower:
@@ -34,6 +32,7 @@ def compare(A, B):
 
 
 def evaluate():
+    '''Compares the user guess against the actual higher account'''
     global current_score
     global end_of_game
 
@@ -46,6 +45,11 @@ def evaluate():
 again = True
 end_of_game = False
 while again:
+    current_score = 0
+    first_person = random.choice(data)
+    second_person = random.choice(data)
+    a = ""
+    b = ""
     while not end_of_game:
         clear()
         print(logo)
@@ -68,7 +72,6 @@ while again:
         "Do you wanna play another game of 'High / Low'? ツ\nType 'y' or 'n': ")
     if again == 'y':
         end_of_game = False
-        current_score = 0
     elif again == 'n':
         again = False
         print("Understandable. Have a great day ╍●‿●╍")
