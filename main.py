@@ -22,7 +22,7 @@ def new_comparison():
 
 
 def compare(A, B):
-    '''Compares account A followers number agaist account B followers number, and returns the higher account charachter (a / b)'''
+    '''Compares account A followers count agaist account B followers count, and returns the higher account charachter (a / b)'''
     a_folower = A['follower_count']
     b_folower = B['follower_count']
     if a_folower > b_folower:
