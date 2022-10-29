@@ -16,7 +16,7 @@ def new_comparison():
     a = f"{first_person['name']}, {first_person['description']}, {first_person['country']}"
 
     second_person = random.choice(data)
-    if second_person == first_person:
+    while second_person == first_person:
         second_person = random.choice(data)
     b = f"{second_person['name']}, {second_person['description']}, {second_person['country']}"
 
